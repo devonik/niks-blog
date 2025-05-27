@@ -1,21 +1,21 @@
 export const navbarData = {
-  homeTitle: "Riyad's Blog",
+  homeTitle: "Nik's Blog",
 }
 
 export const footerData = {
-  author: 'Al Asad Nur Riyad',
+  author: 'Niklas Grieger',
   aboutAuthor:
-    'Hi! I am Riyad, a Tech enthusiast, problem solver and software engineer. Currently working at FieldNation LLC.',
+    'Hi! I am Niklas, a freelance software engineer. I like to travel the world and I like to share my experiences and tipps and tricks.',
   authorInterest:
-    "I have a fair amount of knowledge of Javascript, Typescript, VueJs, and Nuxt. If you have an interesting idea, either open source or paid let's connect.",
+    "My passion beside my job as a software engineer is traveling, scuba diving and tabletennis.",
   aboutTheSite:
-    "This is a personal blog site built with Nuxt3, TailwindCSS, NuxtContent, Nuxt Icon. Currently it's deployed in Vercel.",
+    "This is a personal blog to share my experiences, tipps and tricks with other travelers. My focus is on budget traveling.",
 }
 
 export const homePage = {
   title: 'Welcome To My Blog Site',
   description:
-    'Get Web Development, Javascript, Typescript, NodeJs, Vue, and Nuxt, Related Articles, Tips, Learning resources and more.',
+    'Read about my travel experiences. I will share tipps and tricks for budget traveling, things to do or to avoid and more. I am glad that you are here and willing to read my blog :)',
 }
 
 export const blogsPage = {
@@ -30,29 +30,29 @@ export const categoryPage = {
 }
 
 export const aboutPage = {
-  title: 'Al Asad Nur Riyad',
-  description: 'Software Engineer, Problem Solver, Web Enthusiast.',
+  title: 'Niklas Grieger',
+  description: 'Software Engineer, Problem Solver, Solo Traveler',
   aboutMe:
-    "Hello, fellow human! I'm a software wizard who spends most of his day crafting code spells at @FieldNation in the Workplace Operation team. When I'm not crafting code, you can find me summoning solutions to problems on online judges. Just don't ask me to cast any love spells, my magic only works on machines!",
+    "Hello, fellow human! I'm a software engineer that started solo traveling in 2023. I am still on the road and I want to share my experiences and many tipps that I collected. I like to do the non-touristic things as learning the culture of the country, spend time with locals and be myself. I am not the stereo type traveler and I like to unusual things - just because nobody else is doing it doesn't mean you cannot do it. One of my passion is tabletennis and I travel with my racket so in any location I am looking for tabletennis clubs - it is possible and I played already in Thailand, Vietnam, Philipines, Indonesia, Portugal, Brasil, Columbia and more.",
 }
 
 export const seoData = {
-  title: `Riyad's Blog | Riyads Blog`,
-  ogTitle: `Let's learn Javascript, Typescript, Vue, Nuxt, & Problem Solving - Riyads Blog | Riyad's Blog`,
-  description: `Hi I am Riyad. A Software Engineer at FieldNation, with over 3.5+ years experience in software development. - Riyads Blog | Riyad's Blog`,
-  twitterDescription: `Riyad's Blog, where I play around with Nuxt, Vue, and more and showcase my blog, resources, etc - Riyads Blog | Riyad's Blog`,
+  title: `Nik's Blog | Niks Blog`,
+  ogTitle: `Enjoy my travel blog, guides and helpful tipps around bugdet traveling - Niks Blog | Nik's Blog`,
+  description: `Hi I am Niklas. I am a freelance software engineer and I travel solo since 2023 and I am happy to share my experiences - Niks Blog | Nik's Blog`,
+  twitterDescription: `Nik's Blog, where I show you tipps and tricks around solo travel, remote working, digital nomad communities - Niks Blog | Nik's Blog`,
   image:
-    'https://res.cloudinary.com/dmecmyphj/image/upload/v1673548905/nuxt-blog/cover_ntgs6u.webp',
-  mySite: 'https://blog-nurriyad.vercel.app',
-  twitterHandle: '@qdnvubp',
-  mailAddress: 'asadnurriyad@gmail.com',
+    'https://devnik.dev/MeTrainVietnam.webp',
+  mySite: 'https://devnik.dev/niks-blog',
+  twitterHandle: '',
+  mailAddress: 'niklas.grieger@devnik.dev',
 }
 
 export const socialLinks = {
-  githubLink: 'https://github.com/nurRiyad',
-  linkedinLink: 'https://www.linkedin.com/in/nur-riyad/',
-  twitterLink: 'https://twitter.com/qdnvubp',
-  stackoverflowLink: 'https://stackoverflow.com/users/16781395/nur-riyad',
+  githubLink: 'https://github.com/devonik',
+  linkedinLink: 'https://www.linkedin.com/in/niklas-grieger-b98086152/',
+  twitterLink: '',
+  stackoverflowLink: 'https://stackoverflow.com/users/6143720/devnik',
 }
 
 export const siteMetaData = [
