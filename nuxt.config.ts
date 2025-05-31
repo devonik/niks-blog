@@ -19,6 +19,15 @@ export default defineNuxtConfig({
     '@formkit/auto-animate',
     '@stefanobartoletti/nuxt-social-share',
   ],
+  image: {
+    provider: 'ipx',
+    ipx: {
+      modifiers: {
+        //Has to be null otherwise the images are rotating if they have specific exif data
+        rotate: null
+      }
+    }
+  },
 
   app: {
     head: {
@@ -63,6 +72,10 @@ export default defineNuxtConfig({
         highlight: {
           theme: 'dracula',
         },
+        toc: {
+          depth: 4, // include h2 headings
+          searchDepth: 4
+        }
       },
     },
   },
