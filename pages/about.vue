@@ -64,7 +64,13 @@ defineOgImageComponent('About', {
             </div>
           </div>
           <div class="sm:hidden block col-span-3 pb-5 dark:text-[#F1F2F4]">
-            <NuxtImg :src="seoData.image" width="125" height="115" quality="50" class="rounded-md" />
+            <NuxtImg
+              :src="seoData.image"
+              width="125"
+              height="115"
+              quality="50"
+              class="rounded-md"
+            />
           </div>
         </div>
         <h3 class="text-base sm:text-3xl font-semibold pb-7 sm:pb-12">
@@ -72,6 +78,8 @@ defineOgImageComponent('About', {
         </h3>
 
         <p>{{ aboutPage.aboutMe }}</p>
+
+        <ClientOnly><VueInstaFeed filter-tag="galapagos" orientation="horizontal" /></ClientOnly>
       </div>
       <div class="hidden sm:block col-span-3">
         <NuxtImg :src="seoData.image" width="450" height="500" quality="50" class="rounded-md" />

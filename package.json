@@ -35,17 +35,22 @@
     "nuxt": "^3.16.1",
     "nuxt-icon": "^0.6.8",
     "nuxt-og-image": "^5.0.2",
+    "nuxt-scheduler": "^0.1.9",
     "prettier": "^3.5.3",
+    "sass": "^1.89.1",
     "typescript": "^5.8.2",
     "unenv": "^1.10.0"
   },
   "packageManager": "pnpm@10.5.0+sha512.11106a5916c7406fe4b8cb8e3067974b8728f47308a4f5ac5e850304afa6f57e2847d7950dfe78877d8d36bfb401d381c4215db3a4c3547ffa63c14333a6fa51",
   "pnpm": {
-  "onlyBuiltDependencies": [
-     "better-sqlite3"
-  ]
-},
-"resolutions": {
-  "ipx": "^3.0.0"
-}
+    "onlyBuiltDependencies": [
+      "better-sqlite3"
+    ]
+  },
+  "resolutions": {
+    "ipx": "^3.0.0"
+  },
+  "dependencies": {
+    "instafeed.js": "^2.0.0"
+  }
 }
