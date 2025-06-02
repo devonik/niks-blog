@@ -35,37 +35,34 @@ const props = withDefaults(
   },
 )
 onMounted(async () => {
-  const { data, execute } = await useFetch('/api/insta-token')
+  const { data } = await useFetch('/api/insta-token')
 
-  setTimeout(() => {
-    execute()
-    console.log('token', data.value)
+  console.log('token', data.value)
 
-    const feed = new Instafeed({
-      limit: props.limit,
-      filter: (data: FilterPayload) => {
-        if (props.filterTag && data.tags.includes(props.filterTag)) return true
-        return false
-      },
-      render: (data: FilterPayload) => {
-        console.log('data', data)
-        if (data.model.media_type === 'VIDEO') {
-          return `<a class="instafeed__item" style="max-width: ${props.itemWidth}px" href="${data.link}" target="_blank" rel="noopener noreferrer">
+  const feed = new Instafeed({
+    limit: props.limit,
+    filter: (data: FilterPayload) => {
+      if (props.filterTag && data.tags.includes(props.filterTag)) return true
+      return false
+    },
+    render: (data: FilterPayload) => {
+      console.log('data', data)
+      if (data.model.media_type === 'VIDEO') {
+        return `<a class="instafeed__item" style="max-width: ${props.itemWidth}px" href="${data.link}" target="_blank" rel="noopener noreferrer">
                 <video controls>
                   <source src="${data.model.media_url}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
               </a>`
-        }
-        return `<a class="instafeed__item" style="max-width: ${props.itemWidth}px" href="${data.link}" target="_blank" rel="noopener noreferrer">
+      }
+      return `<a class="instafeed__item" style="max-width: ${props.itemWidth}px" href="${data.link}" target="_blank" rel="noopener noreferrer">
               <img src="${data.image}" alt="${data.caption}" />
             </a>`
-      },
-      accessToken: data.value,
-    })
+    },
+    accessToken: data.value,
+  })
 
-    feed.run()
-  }, 5000)
+  feed.run()
 })
 </script>
 

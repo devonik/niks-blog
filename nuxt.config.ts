@@ -59,6 +59,12 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: ['/', '/rss.xml'],
     },
+    storage: {
+      token: {
+        driver: 'fs',
+        base: './tmp'
+      }
+    }
   },
 
   colorMode: {
