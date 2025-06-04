@@ -2,6 +2,7 @@
 import Instafeed from 'instafeed.js'
 import { useElementVisibility } from '@vueuse/core'
 import { useTemplateRef } from 'vue'
+import { seoData } from '~/data'
 
 interface FilterPayload {
   caption: string
@@ -43,7 +44,7 @@ const targetIsVisible = useElementVisibility(target)
 
 watch(targetIsVisible, async (isVisible) => {
   if (isVisible && !isLoaded.value) {
-    const { data } = await useFetch('/api/insta-token')
+    const { data } = await useFetch(`${seoData.mySite}/api/insta-token`)
 
     const feed = new Instafeed({
       target: props.anchor,

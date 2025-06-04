@@ -43,7 +43,7 @@ export const seoData = {
   twitterDescription: `Nik's Blog, where I show you tipps and tricks around solo travel, remote working, digital nomad communities - Niks Blog | Nik's Blog`,
   image:
     'https://devnik.dev/MeTrainVietnam.webp',
-  mySite: 'https://devnik.dev/niks-blog',
+  mySite: 'https://blog.devnik.dev',
   twitterHandle: '',
   mailAddress: 'niklas.grieger@devnik.dev',
 }
