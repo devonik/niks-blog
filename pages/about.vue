@@ -79,7 +79,9 @@ defineOgImageComponent('About', {
 
         <p>{{ aboutPage.aboutMe }}</p>
 
-        <ClientOnly><VueInstaFeed filter-tag="galapagos" orientation="horizontal" /></ClientOnly>
+        <ClientOnly
+          ><VueInstaFeed :filter-tags="['galapagos']" orientation="horizontal"
+        /></ClientOnly>
       </div>
       <div class="hidden sm:block col-span-3">
         <NuxtImg :src="seoData.image" width="450" height="500" quality="50" class="rounded-md" />
