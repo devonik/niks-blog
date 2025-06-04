@@ -28,10 +28,12 @@ const props = withDefaults(
     filterTags: string[]
     orientation?: 'horizontal' | 'vertical'
     itemWidth?: number
+    anchor?: string
   }>(),
   {
     orientation: 'horizontal',
     itemWidth: 200,
+    anchor: 'instafeed',
   },
 )
 
@@ -44,6 +46,7 @@ watch(targetIsVisible, async (isVisible) => {
     const { data } = await useFetch('/api/insta-token')
 
     const feed = new Instafeed({
+      target: props.anchor,
       filter: (data: FilterPayload) => {
         if (
           props.filterTags.some((tag) => {
@@ -60,7 +63,8 @@ watch(targetIsVisible, async (isVisible) => {
                         <source src="${data.model.media_url}" type="video/mp4">
                         Your browser does not support the video tag.
                        </video>`
-        else contentEl = `<img src="${data.model.media_url}" alt="${data.caption}" />`
+        else
+          contentEl = `<img class="not-prose" src="${data.model.media_url}" alt="${data.caption}" />`
         return `<div class="instafeed__item" >
                   <a href="${data.link}" target="_blank" rel="noopener noreferrer">
                   <div class="instafeed__item__header">
@@ -77,19 +81,19 @@ watch(targetIsVisible, async (isVisible) => {
     isLoaded.value = true
   }
 })
-onMounted(async () => {})
 </script>
 
 <template>
   <div
-    id="instafeed"
+    :id="anchor"
     ref="target"
+    class="instafeed"
     :style="{ flexDirection: orientation === 'horizontal' ? 'row' : 'column' }"
   ></div>
 </template>
 
 <style lang="scss">
-#instafeed {
+.instafeed {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
