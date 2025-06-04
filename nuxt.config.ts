@@ -3,9 +3,6 @@ import { seoData } from './data'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-09-30',
-  runtimeConfig: {
-    IGAccessToken: process.env.IGAccessToken || ''
-  },
   modules: [
     'nuxt-icon',
     '@nuxt/image',

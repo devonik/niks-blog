@@ -25,8 +25,7 @@ async function startScheduler() {
   // create as many tasks as you want here
 }
 async function refreshToken() {
-  let token = await useStorage().getItem('token:insta')
-  if(!token) token = useRuntimeConfig().IGAccessToken
+  const token = await useStorage().getItem('token:insta')
 
   await $fetch<IGApiRefreshTokenResponse>(
     `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${token}`,
