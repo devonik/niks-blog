@@ -2,7 +2,7 @@
 // https://github.com/tailwindlabs/tailwindcss-intellisense/issues/663#issuecomment-1316788128
 
 module.exports = {
-  darkMode: 'class',
+  darkMode: 'media', // This uses the user's system preference
   content: [],
   theme: {
     extend: {
