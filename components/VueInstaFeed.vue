@@ -43,13 +43,10 @@ watch(targetIsVisible, async (isVisible) => {
   if (isVisible && !isLoaded.value) {
     const { data } = await useFetch('/api/insta-token')
 
-    console.log('props.filterTags', props.filterTags)
-
     const feed = new Instafeed({
       filter: (data: FilterPayload) => {
         if (
           props.filterTags.some((tag) => {
-            console.log('does data.tags include tag?', data.tags, tag)
             return data.tags.includes(tag)
           })
         )
