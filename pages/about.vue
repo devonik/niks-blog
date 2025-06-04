@@ -46,14 +46,6 @@ defineOgImageComponent('About', {
                 <Icon name="fa:linkedin-square" size="1em" />
               </NuxtLink>
               <NuxtLink
-                :to="socialLinks.twitterLink"
-                target="_blank"
-                class="px-2 py-1 lg:px-3 lg:py-2 bg-gray-300 text-gray-800 rounded-md dark:bg-slate-700 dark:text-[#F1F2F4]"
-                aria-label="Twitter"
-              >
-                <Icon name="fa:twitter-square" size="1em" />
-              </NuxtLink>
-              <NuxtLink
                 :to="socialLinks.stackoverflowLink"
                 target="_blank"
                 class="px-2 py-1 lg:px-3 lg:py-2 bg-gray-300 text-gray-800 rounded-md dark:bg-slate-700 dark:text-[#F1F2F4]"

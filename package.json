@@ -24,7 +24,7 @@
     "@nuxtjs/robots": "^5.2.6",
     "@nuxtjs/sitemap": "^7.2.7",
     "@nuxtjs/tailwindcss": "^6.11.4",
-    "@stefanobartoletti/nuxt-social-share": "^0.6.1",
+    "@stefanobartoletti/nuxt-social-share": "^1.2.3",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
     "@vueuse/core": "^10.9.0",
@@ -51,6 +51,8 @@
     "ipx": "^3.0.0"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "instafeed.js": "^2.0.0"
   }
 }

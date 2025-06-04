@@ -57,22 +57,21 @@ watch(targetIsVisible, async (isVisible) => {
         return false
       },
       render: (data: FilterPayload) => {
-        console.log('data', data)
         let contentEl
         if (data.model.media_type === 'VIDEO')
-          contentEl = `<video controls>
-                      <source src="${data.model.media_url}" type="video/mp4">
-                      Your browser does not support the video tag.
-                    </video>`
+          contentEl = `<video class="not-prose" controls>
+                        <source src="${data.model.media_url}" type="video/mp4">
+                        Your browser does not support the video tag.
+                       </video>`
         else contentEl = `<img src="${data.model.media_url}" alt="${data.caption}" />`
-        return `<div class="instafeed__item" style="max-width: ${props.itemWidth}px" >
-                <a href="${data.link}" target="_blank" rel="noopener noreferrer">
-                <div class="instafeed__item__header">
-                  <span>${data.caption.substring(0, 50)}...</span>
-                </div>
-                ${contentEl}
-                </a>
-              </div>`
+        return `<div class="instafeed__item" >
+                  <a href="${data.link}" target="_blank" rel="noopener noreferrer">
+                  <div class="instafeed__item__header">
+                    <span>${data.caption.substring(0, 50)}...</span>
+                  </div>
+                  ${contentEl}
+                  </a>
+                </div>`
       },
       accessToken: data.value,
     })
@@ -99,11 +98,14 @@ onMounted(async () => {})
   flex-wrap: wrap;
   .instafeed__item {
     flex: 1 0 33%;
+    flex-basis: 30%;
+    max-width: 300px;
     .instafeed__item__header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px;
+      margin-bottom: 8px;
+      min-height: 100px;
     }
   }
 }

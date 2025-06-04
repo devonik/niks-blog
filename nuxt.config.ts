@@ -20,6 +20,9 @@ export default defineNuxtConfig({
     '@stefanobartoletti/nuxt-social-share',
     'nuxt-scheduler'
   ],
+  socialShare: {
+    baseUrl: 'https://blog.devnik.dev'
+  },
   image: {
     provider: 'ipx',
     ipx: {
