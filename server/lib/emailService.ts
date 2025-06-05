@@ -19,5 +19,13 @@ export function sendMail(to: string, subject: string, text?: string, html?: stri
     html,
   }
 
-  return transporter.sendMail(mailOptions)
+  return transporter
+    .sendMail(mailOptions)
+    .then(() => {
+      console.info('Email sent successfully to :' + to)
+    })
+    .catch((error) => {
+      console.error('Error sending email:', error)
+      throw new Error('Failed to send email')
+    })
 }

@@ -3,6 +3,7 @@ import { SpeedInsights } from '@vercel/speed-insights/nuxt'
 import { Analytics } from '@vercel/analytics/nuxt'
 
 const isCheckoutSucceedModalOpen = ref(false)
+const checkoutSendEmailAgainErrorMessage = ref('')
 const params = useUrlSearchParams('history')
 
 watch(
@@ -20,9 +21,14 @@ function sendCheckoutSucceedEmail() {
     body: JSON.stringify({
       sessionId: params['checkout-succeed-session'],
     }),
-  }).finally(() => {
-    isCheckoutSucceedModalOpen.value = false
   })
+    .catch(() => {
+      checkoutSendEmailAgainErrorMessage.value =
+        'Could not send email, please try again or contact me via mail niklas.grieger@devnik.dev or on IG @nik.diver'
+    })
+    .finally(() => {
+      isCheckoutSucceedModalOpen.value = false
+    })
 }
 </script>
 <template>
@@ -49,6 +55,9 @@ function sendCheckoutSucceedEmail() {
       <p class="mt-3">
         Thank you for your purchase and your support! You got a email with the product(s). If you
         cannot find it check your spam folder or send the email again.
+      </p>
+      <p v-if="checkoutSendEmailAgainErrorMessage" class="text-red-500">
+        {{ checkoutSendEmailAgainErrorMessage }}
       </p>
 
       <template #actions>

@@ -8,6 +8,15 @@ export default defineEventHandler(async (event) => {
       statusMessage: 'Session ID is required',
     })
   }
-  await fulfillCheckout(body.sessionId)
-  return 'Ok'
+  try {
+    await fulfillCheckout(body.sessionId)
+  } catch (err) {
+    console.error('Error fulfilling checkout:', err)
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Failed to fulfill checkout',
+    })
+  }
+
+  return 'Email sent'
 })

@@ -2,6 +2,7 @@ import initStripe from '../lib/stripe/initStripe'
 import fulfillCheckout from '../lib/stripe/fulfillCheckout'
 
 export default defineEventHandler(async (event) => {
+  console.info('Stripe webhook received')
   const stripe = await initStripe()
 
   const headers = getHeaders(event)
@@ -26,6 +27,7 @@ export default defineEventHandler(async (event) => {
       sig,
       config.stripeWebhookSecret,
     )
+    console.info('Stripe event constructed successfully. Type: ' + stripeEvent.type)
     if (
       stripeEvent.type === 'checkout.session.completed' ||
       stripeEvent.type === 'checkout.session.async_payment_succeeded'

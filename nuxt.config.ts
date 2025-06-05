@@ -6,8 +6,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     igAccessToken: process.env.NUXT_IG_ACCESS_TOKEN || '',
     email: {
-      username: process.env.NUXT_SEMAIL_USERNAME || '',
-      password: process.env.NUXT_SEMAIL_PASSWORD || '',
+      username: process.env.NUXT_EMAIL_USERNAME || '',
+      password: process.env.NUXT_EMAIL_PASSWORD || '',
     },
     stripeApiKey: process.env.NUXT_STRIPE_API_KEY || '',
     stripeWebhookSecret: process.env.NUXT_STRIPE_WEBHOOK_SECRET || '',
