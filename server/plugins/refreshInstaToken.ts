@@ -1,4 +1,5 @@
 import { useScheduler } from '#scheduler'
+import { useRuntimeConfig } from '#imports'
 
 interface IGApiRefreshTokenResponse {
   access_token: string
