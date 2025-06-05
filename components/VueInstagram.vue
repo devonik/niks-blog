@@ -7,7 +7,6 @@ const props = defineProps<{
   omitScript?: boolean
   className: string
 }>()
-const html = ref('')
 const finalUrl = computed(() => {
   return `${props.url}?utm_source=ig_embed&amp;utm_campaign=loading`
 })
@@ -19,25 +18,6 @@ onMounted(() => {
     validateUrl()
   }
 })
-function fetchEmbed() {
-  validateUrl()
-  const url = `https://api.instagram.com/oembed?url=${props.url}&maxwidth=${props.maxWidth}&hidecaption=${this.hideCaption}&omitscript=${this.omitScript}`
-  fetch(url)
-    .then((res) => {
-      if (res.ok) {
-        return res.json()
-      }
-    })
-    .then((data) => {
-      html.value = data.html
-      $nextTick(() => {
-        window.instgrm.Embeds.process()
-      })
-    })
-    .catch((e) => {
-      throw new Error(e)
-    })
-}
 function validateUrl() {
   const urlRe =
     /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi

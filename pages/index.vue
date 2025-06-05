@@ -23,6 +23,7 @@ defineOgImageComponent('About', {
 
 <template>
   <main class="container max-w-5xl mx-auto text-zinc-600">
+    <a href="https://buy.stripe.com/test_cNiaEZfb72eZ4tH1zF7wA00">test payment link</a>
     <MainHero />
     <MainRecent />
     <MainTrending />
