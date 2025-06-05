@@ -10,6 +10,7 @@ export default defineNuxtConfig({
       password: process.env.NUXT_SEMAIL_PASSWORD || '',
     },
     stripeApiKey: process.env.NUXT_STRIPE_API_KEY || '',
+    stripeWebhookSecret: process.env.NUXT_STRIPE_WEBHOOK_SECRET || '',
   },
   modules: [
     'nuxt-icon',
