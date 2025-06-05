@@ -4,12 +4,12 @@ import { seoData } from './data'
 export default defineNuxtConfig({
   compatibilityDate: '2024-09-30',
   runtimeConfig: {
-    igAccessToken: process.env.VERCEL_IG_ACCESS_TOKEN || '',
+    igAccessToken: process.env.NUXT_IG_ACCESS_TOKEN || '',
     email: {
-      username: process.env.VERCEL_EMAIL_USERNAME || '',
-      password: process.env.VERCEL_EMAIL_PASSWORD || '',
+      username: process.env.NUXT_SEMAIL_USERNAME || '',
+      password: process.env.NUXT_SEMAIL_PASSWORD || '',
     },
-    stripeApiKey: process.env.VERCEL_STRIPE_API_KEY || '',
+    stripeApiKey: process.env.NUXT_STRIPE_API_KEY || '',
   },
   modules: [
     'nuxt-icon',
