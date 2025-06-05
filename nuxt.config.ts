@@ -3,6 +3,9 @@ import { seoData } from './data'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-09-30',
+  runtimeConfig: {
+    igAccessToken: process.env.IG_ACCESS_TOKEN || '',
+  },
   modules: [
     'nuxt-icon',
     '@nuxt/image',
@@ -17,19 +20,19 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@formkit/auto-animate',
     '@stefanobartoletti/nuxt-social-share',
-    'nuxt-scheduler'
+    'nuxt-scheduler',
   ],
   socialShare: {
-    baseUrl: 'https://blog.devnik.dev'
+    baseUrl: 'https://blog.devnik.dev',
   },
   image: {
     provider: 'ipx',
     ipx: {
       modifiers: {
         //Has to be null otherwise the images are rotating if they have specific exif data
-        rotate: null
-      }
-    }
+        rotate: null,
+      },
+    },
   },
 
   app: {
@@ -64,9 +67,9 @@ export default defineNuxtConfig({
     storage: {
       token: {
         driver: 'fs',
-        base: './tmp'
-      }
-    }
+        base: './tmp',
+      },
+    },
   },
 
   colorMode: {
@@ -83,8 +86,8 @@ export default defineNuxtConfig({
         },
         toc: {
           depth: 4, // include h2 headings
-          searchDepth: 4
-        }
+          searchDepth: 4,
+        },
       },
     },
   },
