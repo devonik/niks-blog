@@ -5,6 +5,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-09-30',
   runtimeConfig: {
     igAccessToken: process.env.IG_ACCESS_TOKEN || '',
+    email: {
+      username: process.env.EMAIL_USERNAME || '',
+      password: process.env.EMAIL_PASSWORD || '',
+    },
+    stripeApiKey: process.env.STRIPE_API_KEY || '',
   },
   modules: [
     'nuxt-icon',
