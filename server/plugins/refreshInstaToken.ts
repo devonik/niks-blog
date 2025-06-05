@@ -9,9 +9,11 @@ interface IGApiRefreshTokenResponse {
 }
 
 export default defineNitroPlugin(async () => {
+  const config = useRuntimeConfig()
+  console.log('config', config)
   const token = await useStorage().getItem('token:insta')
   // If no token is found, set it to the initial access token from runtime config
-  if (!token) await useStorage().setItem('token:insta', useRuntimeConfig().igAccessToken)
+  if (!token) await useStorage().setItem('token:insta', config.igAccessToken)
   startScheduler()
 })
 
