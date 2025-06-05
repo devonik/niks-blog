@@ -7,9 +7,9 @@ export const footerData = {
   aboutAuthor:
     'Hi! I am Niklas, a freelance software engineer. I like to travel the world and I like to share my experiences and tipps and tricks.',
   authorInterest:
-    "My passion beside my job as a software engineer is traveling, scuba diving and tabletennis.",
+    'My passion beside my job as a software engineer is traveling, scuba diving and tabletennis.',
   aboutTheSite:
-    "This is a personal blog to share my experiences, tipps and tricks with other travelers. My focus is on budget traveling.",
+    'This is a personal blog to share my experiences, tipps and tricks with other travelers. My focus is on budget traveling.',
 }
 
 export const homePage = {
@@ -41,8 +41,7 @@ export const seoData = {
   ogTitle: `Enjoy my travel blog, guides and helpful tipps around bugdet traveling - Niks Blog | Nik's Blog`,
   description: `Hi I am Niklas. I am a freelance software engineer and I travel solo since 2023 and I am happy to share my experiences - Niks Blog | Nik's Blog`,
   twitterDescription: `Nik's Blog, where I show you tipps and tricks around solo travel, remote working, digital nomad communities - Niks Blog | Nik's Blog`,
-  image:
-    'https://devnik.dev/MeTrainVietnam.webp',
+  image: 'https://devnik.dev/MeTrainVietnam.webp',
   mySite: 'https://blog.devnik.dev',
   twitterHandle: '',
   mailAddress: 'niklas.grieger@devnik.dev',
