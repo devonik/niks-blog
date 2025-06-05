@@ -8,4 +8,3 @@ node_modules
 *.log
 tmp/
 .env
-.env.example
