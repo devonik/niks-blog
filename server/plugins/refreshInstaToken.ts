@@ -13,7 +13,7 @@ export default defineNitroPlugin(async () => {
   console.log('config', config)
   const token = await useStorage().getItem('token:insta')
   // If no token is found, set it to the initial access token from runtime config
-  if (!token) await useStorage().setItem('token:insta', config.igAccessToken)
+  if (!token) await useStorage().setItem('token:insta', 1234 /*config.igAccessToken*/)
   startScheduler()
 })
 
