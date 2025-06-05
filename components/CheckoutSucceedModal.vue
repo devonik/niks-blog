@@ -2,7 +2,7 @@
 defineProps<{
   isModalVisible: boolean
 }>()
-const emit = defineEmits(['close'])
+defineEmits(['close'])
 </script>
 <template>
   <transition name="fade">
