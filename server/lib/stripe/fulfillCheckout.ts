@@ -42,7 +42,7 @@ export default async (sessionId: string) => {
           formattedProductLines,
         )
         if (checkoutSession.customer_details?.email) {
-          sendMail(
+          await sendMail(
             checkoutSession.customer_details.email,
             'Your purchase was successful!',
             '',
