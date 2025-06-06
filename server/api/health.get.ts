@@ -1,3 +1,4 @@
 export default defineEventHandler(async () => {
-  return 'Ok'
+  console.log('process.env.NUXT_IG_ACCESS_TOKEN', process.env.NUXT_IG_ACCESS_TOKEN)
+  return process.env.NUXT_IG_ACCESS_TOKEN
 })

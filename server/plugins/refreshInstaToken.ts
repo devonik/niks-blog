@@ -8,10 +8,10 @@ interface IGApiRefreshTokenResponse {
 }
 
 export default defineNitroPlugin(async () => {
-  console.log('process.env.NUXT_IG_ACCESS_TOKEN', process.env.NUXT_IG_ACCESS_TOKEN)
   const token = await useStorage().getItem('token:insta')
   // If no token is found, set it to the initial access token from runtime config
-  if (!token) await useStorage().setItem('token:insta', process.env.NUXT_IG_ACCESS_TOKEN || '')
+  if (!token)
+    await useStorage().setItem('token:insta', 1234 /*process.env.NUXT_IG_ACCESS_TOKEN || ''*/)
   startScheduler()
 })
 
