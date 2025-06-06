@@ -18,5 +18,5 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  return 'Email sent'
+  return 'Checkout fulfilled finished'
 })
