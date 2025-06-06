@@ -14,9 +14,6 @@ export default defineNitroPlugin(async () => {
     )
     return
   }
-  const token = await useStorage().getItem('token:insta')
-  // If no token is found, set it to the initial access token from runtime config
-  if (!token) await refreshToken()
   startScheduler()
 })
 
@@ -33,13 +30,10 @@ async function startScheduler() {
 }
 async function refreshToken() {
   const config = useRuntimeConfig()
-  let token = await useStorage().getItem('token:insta')
-  // If no token is found, use the initial access token from environment variables
-  if (!token) token = config.igAccessToken
-
   await $fetch<IGApiRefreshTokenResponse>(
-    `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${token}`,
+    `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${config.igAccessToken}`,
   ).then(async (result) => {
-    await useStorage().setItem('token:insta', result.access_token)
+    config.igAccessToken = result.access_token
+    console.log('[server/plugins/refreshInstaToken.ts] Instagram token refreshed successfully')
   })
 }
