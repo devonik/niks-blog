@@ -8,6 +8,12 @@ interface IGApiRefreshTokenResponse {
 }
 
 export default defineNitroPlugin(async () => {
+  if (process.env.APP_ENV === 'build') {
+    console.log(
+      '[server/plugins/refreshInstaToken.ts] Skipping starting scheduler, in build context',
+    )
+    return
+  }
   const token = await useStorage().getItem('token:insta')
   // If no token is found, set it to the initial access token from runtime config
   if (!token) await refreshToken()
@@ -27,10 +33,9 @@ async function startScheduler() {
 }
 async function refreshToken() {
   const config = useRuntimeConfig()
-  console.log('config', config)
   let token = await useStorage().getItem('token:insta')
   // If no token is found, use the initial access token from environment variables
-  if (!token) token = config ? config.igAccessToken : ''
+  if (!token) token = config.igAccessToken
 
   await $fetch<IGApiRefreshTokenResponse>(
     `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${token}`,
