@@ -20,8 +20,12 @@ export default async (sessionId: string) => {
   })
   console.log('checkoutSession', checkoutSession)
 
+  // If not paid, do nothing
+  if (checkoutSession.payment_status !== 'paid') return
+
   const formattedProductLines: Record<string, string> = {}
   checkoutSession.line_items?.data.forEach(async (item) => {
+    console.log('Processing line item:', item)
     if (item.price?.product) {
       const product = await stripe.products.retrieve(item.price.product as string)
       console.log('Product:', product)
@@ -53,6 +57,4 @@ export default async (sessionId: string) => {
       }
     }
   })
-
-  return checkoutSession.payment_status === 'paid'
 }

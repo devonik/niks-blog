@@ -22,12 +22,12 @@ function sendCheckoutSucceedEmail() {
       sessionId: params['checkout-succeed-session'],
     }),
   })
+    .then(() => {
+      isCheckoutSucceedModalOpen.value = false
+    })
     .catch(() => {
       checkoutSendEmailAgainErrorMessage.value =
         'Could not send email, please try again or contact me via mail niklas.grieger@devnik.dev or on IG @nik.diver'
-    })
-    .finally(() => {
-      isCheckoutSucceedModalOpen.value = false
     })
 }
 </script>

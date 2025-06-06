@@ -22,10 +22,10 @@ export function sendMail(to: string, subject: string, text?: string, html?: stri
   return transporter
     .sendMail(mailOptions)
     .then(() => {
-      console.info('Email sent successfully to :' + to)
+      console.log('Email sent successfully to :' + to)
     })
     .catch((error) => {
-      console.error('Error sending email:', error)
+      console.log('Error sending email:', error)
       throw new Error('Failed to send email')
     })
 }
