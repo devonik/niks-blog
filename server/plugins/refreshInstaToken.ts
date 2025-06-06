@@ -27,7 +27,8 @@ async function startScheduler() {
 }
 async function refreshToken() {
   let token = await useStorage().getItem('token:insta')
-  if (!token) token = 1234
+  // If no token is found, use the initial access token from environment variables
+  if (!token) token = process.env.NUXT_IG_ACCESS_TOKEN || ''
 
   await $fetch<IGApiRefreshTokenResponse>(
     `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${token}`,
