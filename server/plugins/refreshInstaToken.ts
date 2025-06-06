@@ -27,10 +27,10 @@ async function startScheduler() {
 }
 async function refreshToken() {
   const config = useRuntimeConfig()
-  console.log('config', config)
+  console.log('config', config.igAccessToken)
   let token = await useStorage().getItem('token:insta')
   // If no token is found, use the initial access token from environment variables
-  if (!token) token = 11233
+  if (!token) token = config.igAccessToken
 
   await $fetch<IGApiRefreshTokenResponse>(
     `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${token}`,

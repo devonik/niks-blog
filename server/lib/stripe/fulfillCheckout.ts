@@ -25,10 +25,8 @@ export default async (sessionId: string) => {
 
   const formattedProductLines: Record<string, string> = {}
   checkoutSession.line_items?.data.forEach(async (item) => {
-    console.log('Processing line item:', item)
     if (item.price?.product) {
       const product = await stripe.products.retrieve(item.price.product as string)
-      console.log('Product:', product)
       if (product.metadata['product-key']) {
         //Google maps list products
         Object.keys(GOOGLE_MAPS_LIST_PRODUCT_KEY.galapagos).forEach((key) => {
@@ -37,6 +35,12 @@ export default async (sessionId: string) => {
             formattedProductLines[product.name] = GOOGLE_MAPS_LIST_LINKS.galapagos[key]
           }
         })
+        console.log(
+          'Customer ' +
+            checkoutSession.customer_details?.email +
+            ' bought products. Will send email with links:',
+          formattedProductLines,
+        )
         if (checkoutSession.customer_details?.email) {
           sendMail(
             checkoutSession.customer_details.email,
