@@ -2,7 +2,6 @@
 import Instafeed from 'instafeed.js'
 import { useElementVisibility } from '@vueuse/core'
 import { useTemplateRef } from 'vue'
-import { seoData } from '~/data'
 
 interface FilterPayload {
   caption: string
@@ -57,6 +56,13 @@ watch(targetIsVisible, async (isVisible) => {
           return true
         return false
       },
+      after: () => {
+        isLoaded.value = true
+      },
+      error: () => {
+        //To disable loading spinner
+        isLoaded.value = true
+      },
       render: (data: FilterPayload) => {
         let contentEl
         if (data.model.media_type === 'VIDEO')
@@ -79,18 +85,20 @@ watch(targetIsVisible, async (isVisible) => {
     })
 
     feed.run()
-    isLoaded.value = true
   }
 })
 </script>
 
 <template>
-  <div
-    :id="anchor"
-    ref="target"
-    class="instafeed"
-    :style="{ flexDirection: orientation === 'horizontal' ? 'row' : 'column' }"
-  ></div>
+  <div>
+    <LoadingSpinner v-if="!isLoaded" />
+    <div
+      :id="anchor"
+      ref="target"
+      class="instafeed"
+      :style="{ flexDirection: orientation === 'horizontal' ? 'row' : 'column' }"
+    ></div>
+  </div>
 </template>
 
 <style lang="scss">

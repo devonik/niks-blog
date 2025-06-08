@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/nuxt'
 import { Analytics } from '@vercel/analytics/nuxt'
+import type { BeforeSendEvent } from '@vercel/analytics'
 
 const isCheckoutSucceedModalOpen = ref(false)
 const checkoutSendEmailAgainErrorMessage = ref('')
@@ -30,6 +31,14 @@ function sendCheckoutSucceedEmail() {
         'Could not send email, please try again or contact me via mail niklas.grieger@devnik.dev or on IG @nik.diver'
     })
 }
+
+const beforeSendAnalytics = (event: BeforeSendEvent) => {
+  // Disable analytics for handling my own traffic
+  if (event.url.includes('disable-analytics=1')) {
+    return null
+  }
+  return event
+}
 </script>
 <template>
   <div class="gd-container font-spacegrotesk">
@@ -43,8 +52,8 @@ function sendCheckoutSucceedEmail() {
     <footer>
       <MainFooter />
     </footer>
-    <Analytics />
-    <SpeedInsights />
+    <Analytics :before-send="beforeSendAnalytics" />
+    <SpeedInsights bef />
     <CheckoutSucceedModal
       :is-modal-visible="isCheckoutSucceedModalOpen"
       @close="isCheckoutSucceedModalOpen = false"
