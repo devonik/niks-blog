@@ -44,7 +44,7 @@ const targetIsVisible = useElementVisibility(target)
 
 watch(targetIsVisible, async (isVisible) => {
   if (isVisible && !isLoaded.value) {
-    const { data } = await useFetch(`${seoData.mySite}/api/insta-token`)
+    const { data } = await useFetch(`/api/insta-token`)
 
     const feed = new Instafeed({
       target: props.anchor,
