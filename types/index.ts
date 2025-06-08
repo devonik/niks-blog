@@ -8,3 +8,11 @@ export interface BlogPost {
   tags: string[]
   published: boolean
 }
+
+export interface Comment {
+  id?: number
+  text: string
+  author: string
+  published?: boolean
+  created_at?: string
+}

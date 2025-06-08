@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { BlogPost } from '@/types/blog'
+import type { BlogPost } from '~/types'
 const route = useRoute()
 
 // take category from route params & make first char upper

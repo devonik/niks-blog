@@ -55,6 +55,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "instafeed.js": "^2.0.0",
+    "mysql2": "^3.14.1",
     "nodemailer": "^7.0.3",
     "stripe": "^18.2.1"
   }

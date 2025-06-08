@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { BlogPost } from '~/types/blog'
+import type { BlogPost } from '~/types'
 
 const { data } = await useAsyncData('trending-post', () =>
   queryCollection('content').limit(3).all(),

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { BlogPost } from '~/types/blog'
+import type { BlogPost } from '~/types'
 
 // Function to parse dates in the format "1st Mar 2023"
 function parseCustomDate(dateStr: string): Date {

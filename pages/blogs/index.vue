@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Fuse from 'fuse.js'
-import type { BlogPost } from '~/types/blog'
+import type { BlogPost } from '~/types'
 
 const { data } = await useAsyncData('all-blog-post', () => queryCollection('content').all())
 

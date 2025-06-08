@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BlogPost } from '@/types/blog'
+import type { BlogPost } from '~/types'
 import { navbarData, seoData } from '~/data'
 
 const { path } = useRoute()
@@ -107,6 +107,8 @@ defineOgImageComponent('Test', {
             <p>No content found.</p>
           </template>
         </ContentRenderer>
+
+        <BlogCommentSection />
       </div>
     </div>
     <BlogToc />
