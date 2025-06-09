@@ -1,6 +1,11 @@
 import { createDatabase } from 'db0'
 import mysql from 'db0/connectors/mysql2'
 export default defineNitroPlugin(async () => {
+  if (process.env.APP_ENV === 'build') {
+    console.log('[server/plugins/initDatabase.ts] Skipping init database, in build context')
+    return
+  }
+
   const db = createDatabase(
     mysql({
       uri: process.env.DB_URI,
