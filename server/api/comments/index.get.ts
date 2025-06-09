@@ -1,3 +1,5 @@
+import useDatabase from '~/server/utils/useDatabase'
+
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   if (!query.blogId) {
@@ -6,7 +8,6 @@ export default defineEventHandler(async (event) => {
       statusMessage: 'Missing required query: blogId',
     })
   }
-  console.log('process.env.POSTGRES_CACERT', process.env.POSTGRES_CACERT)
   return useDatabase()
     .prepare('SELECT * from comments where blog_id = ?')
     .all(query.blogId as string)

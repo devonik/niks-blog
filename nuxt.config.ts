@@ -70,22 +70,6 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: ['/', '/rss.xml'],
     },
-    experimental: {
-      database: true,
-    },
-    database: {
-      default: {
-        connector: 'postgresql',
-        options: {
-          url: process.env.POSTGRES_URL?.replace('sslmode=require', 'sslmode=disable') || '',
-        },
-      },
-    },
-    devDatabase: {
-      default: {
-        connector: 'better-sqlite3',
-      },
-    },
   },
 
   colorMode: {
