@@ -4,8 +4,9 @@ import sqlite from 'db0/connectors/better-sqlite3'
 
 let db: ReturnType<typeof createDatabase>
 export default function useDatabase() {
-  if (!process.env.DATABASE_URL) {
-    throw new Error('ENV variable DATABASE_URL is not configured')
+  const config = useRuntimeConfig()
+  if (!config.databaseUrl) {
+    throw new Error('ENV variable NUXT_DATABASE_URL is not configured')
   }
 
   if (db) return db
@@ -19,7 +20,7 @@ export default function useDatabase() {
   } else {
     db = createDatabase(
       postgresql({
-        url: process.env.DATABASE_URL as string,
+        url: config.databaseUrl,
       }),
     )
   }

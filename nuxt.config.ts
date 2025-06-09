@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     },
     stripeApiKey: process.env.NUXT_STRIPE_API_KEY || '',
     stripeWebhookSecret: process.env.NUXT_STRIPE_WEBHOOK_SECRET || '',
+    databaseUrl: process.env.NUXT_DATABASE_URL || '',
   },
   modules: [
     'nuxt-icon',
