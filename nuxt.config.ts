@@ -77,8 +77,7 @@ export default defineNuxtConfig({
       default: {
         connector: 'postgresql',
         options: {
-          connectionString:
-            process.env.POSTGRES_URL?.replace('sslmode=require', 'sslmode=disable') || '',
+          url: process.env.DATABASE_URL || '',
         },
       },
     },

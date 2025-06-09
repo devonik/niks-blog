@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
       statusMessage: 'Missing required query: blogId',
     })
   }
-  console.log('test', process.env.POSTGRES_URL?.replace('sslmode=require', 'sslmode=disable'))
+  console.log('process.env.DATABASE_URL', process.env.DATABASE_URL)
   return useDatabase()
     .prepare('SELECT * from comments where blog_id = ?')
     .all(query.blogId as string)
