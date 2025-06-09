@@ -1,5 +1,3 @@
-import db from '~/server/lib/database'
-
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   if (!query.blogId) {
@@ -8,9 +6,11 @@ export default defineEventHandler(async (event) => {
       statusMessage: 'Missing required query: blogId',
     })
   }
-  const existingLikes = db
+  const db = useDatabase()
+
+  const existingLikes = (await db
     .prepare('SELECT count FROM likes WHERE blog_id = ?')
-    .get(query.blogId as string) as { count: number }
+    .get(query.blogId as string)) as { count: number }
 
   if (!existingLikes) {
     console.log('existingLikes undefined, inserting new like entry')
