@@ -77,11 +77,7 @@ export default defineNuxtConfig({
       default: {
         connector: 'postgresql',
         options: {
-          url: process.env.POSTGRES_URL || '',
-          ssl: {
-            rejectUnauthorized: false,
-            ca: process.env.POSTGRES_CACERT,
-          },
+          url: process.env.POSTGRES_URL?.replace('sslmode=require', 'sslmode=disable') || '',
         },
       },
     },
