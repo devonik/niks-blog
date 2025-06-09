@@ -81,6 +81,7 @@ export default defineNuxtConfig({
           password: process.env.POSTGRES_PASSWORD || '',
           host: process.env.POSTGRES_HOST || '',
           database: process.env.POSTGRES_DATABASE || '',
+          ssl: false,
         },
       },
     },
