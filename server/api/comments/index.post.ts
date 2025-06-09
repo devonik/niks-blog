@@ -4,9 +4,15 @@ import { v4 as uuidv4 } from 'uuid'
 export default defineEventHandler(async (event) => {
   const body = await readBody<Comment>(event)
 
-  const query = useDatabase().prepare(
-    'INSERT INTO comments (id, blog_id, text, author) VALUES (?, ?, ?, ?)',
-  )
+  const db = useDatabase()
+  if (!db) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Database connection failed',
+    })
+  }
+
+  const query = db.prepare('INSERT INTO comments (id, blog_id, text, author) VALUES (?, ?, ?, ?)')
   if (!body.text || !body.author || !body.blog_id) {
     throw createError({
       statusCode: 400,

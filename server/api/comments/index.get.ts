@@ -1,5 +1,3 @@
-import useDatabase from '~/server/utils/useDatabase'
-
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   if (!query.blogId) {
@@ -8,7 +6,12 @@ export default defineEventHandler(async (event) => {
       statusMessage: 'Missing required query: blogId',
     })
   }
-  return useDatabase()
-    .prepare('SELECT * from comments where blog_id = ?')
-    .all(query.blogId as string)
+  const db = useDatabase()
+  if (!db) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Database connection failed',
+    })
+  }
+  return db.prepare('SELECT * from comments where blog_id = ?').all(query.blogId as string) || []
 })

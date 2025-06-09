@@ -7,6 +7,13 @@ export default defineEventHandler(async (event) => {
     })
   }
   const db = useDatabase()
+  if (!db) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Database connection failed',
+    })
+  }
+
   const existingLikes = (await db
     .prepare('SELECT count FROM likes WHERE blog_id = ?')
     .get(query.blogId as string)) as {
