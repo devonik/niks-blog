@@ -1,12 +1,3 @@
-import { useScheduler } from '#scheduler'
-
-interface IGApiRefreshTokenResponse {
-  access_token: string
-  token_type: string
-  expires_in: number
-  permissions: string
-}
-
 export default defineNitroPlugin(async () => {
   if (process.env.APP_ENV === 'build') {
     console.log(
@@ -18,11 +9,13 @@ export default defineNitroPlugin(async () => {
   db.exec(
     'CREATE TABLE IF NOT EXISTS comments' +
       '(id VARCHAR(255) NOT NULL, ' +
-      'blog_id TEXT NOT NULL,' +
-      'text TEXT NOT NULL, ' +
+      'blog_id VARCHAR(50) NOT NULL,' +
+      'text VARCHAR(255) NOT NULL, ' +
       'author VARCHAR(255) NOT NULL, ' +
-      'published BOOLEAN DEFAULT false, ' +
+      'published BOOLEAN DEFAULT FALSE, ' +
       'created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)',
   )
-  db.exec('CREATE TABLE IF NOT EXISTS likes (blog_id TEXT NOT NULL, count INTEGER DEFAULT 0 )')
+  db.exec(
+    'CREATE TABLE IF NOT EXISTS likes (blog_id VARCHAR(50) NOT NULL, count INTEGER DEFAULT 0 )',
+  )
 })
