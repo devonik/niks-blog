@@ -17,11 +17,11 @@ export default defineNitroPlugin(async () => {
   const db = useDatabase()
   db.exec(
     'CREATE TABLE IF NOT EXISTS comments' +
-      '(id INTEGER, ' +
+      '(id VARCHAR(255) NOT NULL, ' +
       'blog_id TEXT NOT NULL,' +
       'text TEXT NOT NULL, ' +
       'author VARCHAR(255) NOT NULL, ' +
-      'published BOOLEAN DEFAULT 0, ' +
+      'published BOOLEAN DEFAULT false, ' +
       'created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)',
   )
   db.exec('CREATE TABLE IF NOT EXISTS likes (blog_id TEXT NOT NULL, count INTEGER DEFAULT 0 )')
