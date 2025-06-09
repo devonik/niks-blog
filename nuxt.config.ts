@@ -79,7 +79,7 @@ export default defineNuxtConfig({
         options: {
           url: process.env.POSTGRES_URL || '',
           ssl: {
-            rejectUnauthorized: true,
+            rejectUnauthorized: false,
             ca: process.env.POSTGRES_CACERT,
           },
         },
