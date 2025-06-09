@@ -8,7 +8,7 @@ export default defineNitroPlugin(async () => {
 
   const db = createDatabase(
     mysql({
-      uri: process.env.DB_URI,
+      uri: process.env.NUXT_DB_URI,
     }),
   )
   db.exec('SELECT VERSION();')
