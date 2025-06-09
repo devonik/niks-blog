@@ -4,6 +4,11 @@ import sqlite from 'db0/connectors/better-sqlite3'
 
 let db: ReturnType<typeof createDatabase>
 export default function useDatabase() {
+  if (process.env.APP_ENV === 'build') {
+    console.log('[server/utils/useDatabase.ts] Skipping init useDatabase, in build context')
+    return
+  }
+
   const config = useRuntimeConfig()
   if (!config.databaseUrl) {
     throw new Error('ENV variable NUXT_DATABASE_URL is not configured')
