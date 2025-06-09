@@ -27,6 +27,7 @@
     "@stefanobartoletti/nuxt-social-share": "^1.2.3",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/nodemailer": "^6.4.17",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
@@ -54,6 +55,7 @@
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
+    "better-sqlite3": "^11.10.0",
     "instafeed.js": "^2.0.0",
     "mysql2": "^3.14.1",
     "nodemailer": "^7.0.3",

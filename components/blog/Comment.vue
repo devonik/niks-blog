@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type { Comment } from '~/types'
-defineProps<{
+const props = defineProps<{
+  blogId: string
   comment?: Comment
 }>()
 const emit = defineEmits<{
@@ -12,10 +13,11 @@ function submitNewComment() {
     body: newComment.value,
   }).then(() => {
     emit('newComment', newComment.value)
-    newComment.value = { author: '', text: '' } // Reset the form
+    newComment.value = { blog_id: props.blogId, author: '', text: '' } // Reset the form
   })
 }
 const newComment = ref<Comment>({
+  blog_id: props.blogId,
   author: '',
   text: '',
 })

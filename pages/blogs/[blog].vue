@@ -107,8 +107,6 @@ defineOgImageComponent('Test', {
             <p>No content found.</p>
           </template>
         </ContentRenderer>
-
-        <BlogCommentSection />
       </div>
     </div>
     <BlogToc />

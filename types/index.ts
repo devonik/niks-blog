@@ -11,6 +11,7 @@ export interface BlogPost {
 
 export interface Comment {
   id?: number
+  blog_id: string
   text: string
   author: string
   published?: boolean
