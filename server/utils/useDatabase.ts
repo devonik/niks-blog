@@ -41,7 +41,6 @@ export default function useDatabase() {
       'blog_id VARCHAR(50) NOT NULL,' +
       'text VARCHAR(255) NOT NULL, ' +
       'author VARCHAR(255) NOT NULL, ' +
-      'published BOOLEAN DEFAULT FALSE, ' +
       'created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)',
   )
   db.exec(

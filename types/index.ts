@@ -14,6 +14,5 @@ export interface Comment {
   blog_id: string
   text: string
   author: string
-  published?: boolean
   created_at?: string
 }

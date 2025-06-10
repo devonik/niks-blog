@@ -1,23 +1,31 @@
 import type { Comment } from '~/types'
-import { v4 as uuidv4 } from 'uuid'
+
+import { sendMail } from '~/server/lib/emailService'
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig()
   const body = await readBody<Comment>(event)
 
-  const db = useDatabase()
-  if (!db) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: 'Database connection failed',
-    })
-  }
-
-  const query = db.prepare('INSERT INTO comments (id, blog_id, text, author) VALUES (?, ?, ?, ?)')
   if (!body.text || !body.author || !body.blog_id) {
     throw createError({
       statusCode: 400,
       statusMessage: 'Missing required fields: blog_id, text, author',
     })
   }
-  return query.run(uuidv4(), body.blog_id, body.text, body.author)
+  //Send email to me to verify the comment
+  sendMail(
+    config.email.username,
+    'New comment on your blog',
+    '',
+    `<h1>New comment on your blog</h1>
+    <ul>
+      <li>Blog ID: ${body.blog_id}</li>
+      <li>Comment: ${body.text}</li>
+      <li>Author: ${body.author}</li>
+    </ul>
+    Approve it <a href="${config.public.baseUrl}/api/comments/verify?text=${encodeURIComponent(body.text)}&author=${encodeURIComponent(body.author)}&blog_id=${encodeURIComponent(body.blog_id)}">here</a>
+  `,
+  )
+
+  return 'Waiting for verification'
 })
