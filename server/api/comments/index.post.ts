@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
     })
   }
   //Send email to me to verify the comment
-  sendMail(
+  await sendMail(
     config.email.username,
     'New comment on your blog',
     '',
