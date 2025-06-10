@@ -16,8 +16,29 @@ import { blogsPage } from '~/data'
         </p>
       </div>
       <div class="px-6 justify-self-center">
-        <LogoDogpow />
+        <NuxtImg
+          src="/galapagos-hammerhead-close.jpg"
+          alt="Hero Image"
+          width="400"
+          height="400"
+          class="archive-image-masked rounded-lg shadow-lg"
+        />
       </div>
     </div>
   </div>
 </template>
+<style scoped>
+.archive-image-masked {
+  align-items: center;
+  width: 100%;
+  background-repeat: none;
+  -webkit-mask-image: url('/mask.png');
+  mask-image: url('/mask.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-size: 191%;
+  -webkit-mask-size: 191%;
+  mask-position: -142px 22px;
+  -webkit-mask-position: -142px 22px;
+}
+</style>

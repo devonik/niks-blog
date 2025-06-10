@@ -16,8 +16,29 @@ import { categoryPage } from '~/data'
         </p>
       </div>
       <div class="px-6 justify-self-center">
-        <LogoDogs />
+        <NuxtImg
+          src="/indonesia-komodo-sunset.jpg"
+          alt="Hero Image"
+          width="400"
+          height="400"
+          class="category-image-masked rounded-lg shadow-lg"
+        />
       </div>
     </div>
   </div>
 </template>
+<style scoped>
+.category-image-masked {
+  align-items: center;
+  width: 100%;
+  background-repeat: none;
+  -webkit-mask-image: url('/mask.png');
+  mask-image: url('/mask.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-size: 115%;
+  -webkit-mask-size: 115%;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+</style>

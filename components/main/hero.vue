@@ -16,8 +16,29 @@ import { homePage } from '~/data'
         </p>
       </div>
       <div class="px-6 justify-self-center">
-        <LogoDog />
+        <NuxtImg
+          src="/indonesia-komodo-me.jpg"
+          alt="Hero Image"
+          width="400"
+          height="400"
+          class="blog-image-masked rounded-lg shadow-lg"
+        />
       </div>
     </div>
   </div>
 </template>
+<style scoped>
+.blog-image-masked {
+  align-items: center;
+  width: 100%;
+  background-repeat: none;
+  -webkit-mask-image: url('/mask.png');
+  mask-image: url('/mask.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-size: 125%;
+  -webkit-mask-size: 125%;
+  mask-position: -50px 70px;
+  -webkit-mask-position: -50px 70px;
+}
+</style>
