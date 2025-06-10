@@ -11,12 +11,12 @@
     />
     <div class="text-xs text-gray-600">
       <span
-        >This content comes from my Instagram account, @nik.diver. Follow me to support me.</span
-      >
+        >This content comes from my Instagram account, @nik.diver. Follow me to support me.
+      </span>
       <span
         >I am using the DJI osmo action 5 and it's very good for underwater environments. The white
-        balance is one of the best and no red filter needed.</span
-      >
+        balance is one of the best and no red filter needed.
+      </span>
       <span class="text-bold"
         >If you wanna buy the same actions cam please use this
         <a
