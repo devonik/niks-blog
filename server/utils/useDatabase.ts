@@ -15,20 +15,11 @@ export default function useDatabase() {
   }
 
   if (db) return db
-  if (import.meta.dev) {
-    console.log('is DEV')
-    db = createDatabase(
-      sqlite({
-        name: ':memory:',
-      }),
-    )
-  } else {
-    db = createDatabase(
-      postgresql({
-        url: config.databaseUrl,
-      }),
-    )
-  }
+  db = createDatabase(
+    postgresql({
+      url: config.databaseUrl,
+    }),
+  )
 
   if (!db) {
     throw new Error('Failed to initialize database client')

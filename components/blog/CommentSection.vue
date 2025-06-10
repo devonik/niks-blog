@@ -5,8 +5,8 @@ const props = defineProps<{
   blogId: string
 }>()
 
-const { data: comments, refresh } = useFetch<Comment[]>(`/api/comments?blogId=${props.blogId}`)
-const newCommentsWaitingForVerify: Comment[] = ref([])
+const { data: comments } = useFetch<Comment[]>(`/api/comments?blogId=${props.blogId}`)
+const newCommentsWaitingForVerify = ref<Comment[]>([])
 </script>
 
 <template>
