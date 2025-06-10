@@ -26,11 +26,13 @@ interface FilterPayload {
 const props = withDefaults(
   defineProps<{
     filterTags: string[]
+    filterCaptionIncludes?: string
     orientation?: 'horizontal' | 'vertical'
     itemWidth?: number
     anchor?: string
   }>(),
   {
+    filterCaptionIncludes: '',
     orientation: 'horizontal',
     itemWidth: 200,
     anchor: 'instafeed',
@@ -54,6 +56,9 @@ watch(targetIsVisible, async (isVisible) => {
           })
         )
           return true
+        if (props.filterCaptionIncludes)
+          return data.caption.toLowerCase().includes(props.filterCaptionIncludes.toLowerCase())
+
         return false
       },
       after: () => {
