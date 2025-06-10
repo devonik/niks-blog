@@ -2,7 +2,7 @@
 const props = defineProps<{
   blogId: string
 }>()
-const { data: likes, refresh } = useFetch<number>(`/api/like-blog?blogId=${props.blogId}`)
+const { data: likes, refresh, execute } = useFetch<number>(`/api/like-blog?blogId=${props.blogId}`)
 
 async function submitLike() {
   await $fetch(`/api/like-blog?blogId=${props.blogId}`, {
@@ -11,6 +11,9 @@ async function submitLike() {
   liked.value = true
   refresh()
 }
+onMounted(() => {
+  execute()
+})
 const liked = ref(false)
 </script>
 

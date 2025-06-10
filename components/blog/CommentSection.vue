@@ -5,8 +5,11 @@ const props = defineProps<{
   blogId: string
 }>()
 
-const { data: comments } = useFetch<Comment[]>(`/api/comments?blogId=${props.blogId}`)
+const { data: comments, execute } = useFetch<Comment[]>(`/api/comments?blogId=${props.blogId}`)
 const newCommentsWaitingForVerify = ref<Comment[]>([])
+onMounted(() => {
+  execute()
+})
 </script>
 
 <template>
