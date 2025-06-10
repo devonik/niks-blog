@@ -17,7 +17,6 @@ const path = computed(() => route.fullPath.replace('/', ''))
       <div class="border-t dark:border-gray-800 mt-5 text-center p-2">
         © Created by devnik in 2025. Visit the developer's
         <a href="https://devnik.dev" target="_blank" class="underline">website</a>
-        anyway.
 
         <a href="/rss.xml" aria-label="Website RSS Feed">
           <span class="px-3"><Icon name="bi:rss-fill" /></span
