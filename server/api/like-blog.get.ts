@@ -14,13 +14,16 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const existingLikes = (await db
+  let existingLikes = (await db
     .prepare('SELECT count FROM likes WHERE blog_id = ?')
     .get(query.blogId as string)) as { count: number }
 
   if (!existingLikes) {
     console.log('existingLikes undefined, inserting new like entry')
     db.prepare('INSERT INTO likes (blog_id, count) VALUES (?, ?)').run(query.blogId as string, 0)
+    existingLikes = (await db
+      .prepare('SELECT count FROM likes WHERE blog_id = ?')
+      .get(query.blogId as string)) as { count: number }
   }
 
   return existingLikes.count || 0

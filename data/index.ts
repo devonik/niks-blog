@@ -33,7 +33,7 @@ export const aboutPage = {
   title: 'Niklas Grieger',
   description: 'Software Engineer, Problem Solver, Solo Traveler',
   aboutMe:
-    "Hello, fellow human! I'm a software engineer that started solo traveling in 2023. I am still on the road and I want to share my experiences and many tipps that I collected. I like to do the non-touristic things as learning the culture of the country, spend time with locals and be myself. I am not the stereo type traveler and I like to unusual things - just because nobody else is doing it doesn't mean you cannot do it. One of my passion is tabletennis and I travel with my racket so in any location I am looking for tabletennis clubs - it is possible and I played already in Thailand, Vietnam, Philipines, Indonesia, Portugal, Brasil, Columbia and more.",
+    "Hello, fellow human! I'm a software engineer that started solo traveling in 2023. I am still on the road, and I want to share my experiences and many tips that I collected. Furthermore, I like to do the non-touristic things, like learn the culture of the country, spend time with locals, and be myself. I am not the stereotype traveler, and I like to do unusual things; just because nobody else is doing it doesn't mean you cannot do it. One of my passions is table tennis, and I travel with my racket, so in any location I am looking for table tennis clubs - it is possible, and I played already in Thailand, Vietnam, the Philippines, Indonesia, Portugal, Brazil, Columbia, and more.",
 }
 
 export const seoData = {
