@@ -9,6 +9,6 @@ export const GOOGLE_MAPS_LIST_LINKS = {
   galapagos: {
     isabela: 'https://maps.app.goo.gl/hv4iKXZKXvkFajdN8',
     santa_cruz: 'https://maps.app.goo.gl/YsXxgYPs2s89ucK6A',
-    san_cristobal: '',
+    san_cristobal: 'https://maps.app.goo.gl/queSUzrqz2fQBMi99',
   },
 }

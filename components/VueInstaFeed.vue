@@ -113,7 +113,6 @@ watch(targetIsVisible, async (isVisible) => {
   flex-wrap: wrap;
   .instafeed__item {
     flex: 1 0 33%;
-    flex-basis: 30%;
     max-width: 300px;
     .instafeed__item__header {
       display: flex;
