@@ -31,14 +31,15 @@ export const categoryPage = {
 
 export const aboutPage = {
   title: 'Niklas Grieger',
-  description: 'Software Engineer, Problem Solver, Solo Traveler',
+  description:
+    'Software Engineer, Solo Traveler, Nature Lover, Table Tennis and Scuba diving Enthusiast',
   aboutMe:
     "Hello, fellow human! I'm a software engineer that started solo traveling in 2023. I am still on the road, and I want to share my experiences and many tips that I collected. Furthermore, I like to do the non-touristic things, like learn the culture of the country, spend time with locals, and be myself. I am not the stereotype traveler, and I like to do unusual things; just because nobody else is doing it doesn't mean you cannot do it. One of my passions is table tennis, and I travel with my racket, so in any location I am looking for table tennis clubs - it is possible, and I played already in Thailand, Vietnam, the Philippines, Indonesia, Portugal, Brazil, Columbia, and more.",
 }
 
 export const seoData = {
-  title: `Nik's Blog | Niks Blog`,
-  ogTitle: `Enjoy my travel blog, guides and helpful tipps around bugdet traveling - Niks Blog | Nik's Blog`,
+  title: `Nik's Blog | Solo Travel | Scuba diving | Hiking`,
+  ogTitle: `Enjoy my travel blog, guides and helpful tipps around traveling - Niks Blog | Nik's Blog`,
   description: `Hi I am Niklas. I am a freelance software engineer and I travel solo since 2023 and I am happy to share my experiences - Niks Blog | Nik's Blog`,
   twitterDescription: `Nik's Blog, where I show you tipps and tricks around solo travel, remote working, digital nomad communities - Niks Blog | Nik's Blog`,
   image: 'https://devnik.dev/MeTrainVietnam.webp',
