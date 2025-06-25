@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     },
     publicRuntimeConfig: {
       googleAdsense: {
-        id: process.env.NUXT_GOOGLE_ADSENSE_ID,
+        id: 'ca-pub-4609998981070446',
         test: process.env.NUXT_GOOGLE_ADSENSE_TEST_MODE === 'true',
       },
     },

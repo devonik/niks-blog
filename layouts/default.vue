@@ -46,7 +46,7 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
       <MainHeader />
     </header>
     <main>
-      <Adsbygoogle ad-slot="2678018622" ad-format="horizontal" />
+      <Adsbygoogle ad-format="horizontal" />
       <slot />
     </main>
     <footer>
