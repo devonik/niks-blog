@@ -46,9 +46,9 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
       <MainHeader />
     </header>
     <main>
-      <!--TODO ads not ready yet wait for review https://adsense.google.com/adsense/u/0/pub-4609998981070446/sites/list-->
       <div class="p-9" />
-      <Adsbygoogle ad-format="horizontal" />
+      <!--TODO ads not ready yet wait for review https://adsense.google.com/adsense/u/0/pub-4609998981070446/sites/list-->
+      <!--<Adsbygoogle ad-format="horizontal" />-->
       <slot />
     </main>
     <footer>
