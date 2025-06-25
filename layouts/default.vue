@@ -46,14 +46,8 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
       <MainHeader />
     </header>
     <main>
-      <ins
-        class="adsbygoogle"
-        style="display: block"
-        data-ad-client="ca-pub-4609998981070446"
-        data-ad-slot="2678018622"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
+      <!--TODO ads not ready yet wait for review https://adsense.google.com/adsense/u/0/pub-4609998981070446/sites/list-->
+      <!--<Adsbygoogle ad-slot="2678018622" ad-format="horizontal" />-->
       <slot />
     </main>
     <footer>
