@@ -58,6 +58,9 @@ export default defineNuxtConfig({
       viewport: 'width=device-width,initial-scale=1',
       title: seoData.title,
       titleTemplate: `%s - ${seoData.title}`,
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=0.41, maximum-scale=1' },
+      ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
