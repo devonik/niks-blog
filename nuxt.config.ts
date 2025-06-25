@@ -31,7 +31,11 @@ export default defineNuxtConfig({
     '@formkit/auto-animate',
     '@stefanobartoletti/nuxt-social-share',
     'nuxt-scheduler',
+    '@nuxtjs/google-adsense',
   ],
+  googleAdsense: {
+    id: process.env.GOOGLE_ADSENSE_ID,
+  },
   socialShare: {
     baseUrl: 'https://blog.devnik.dev',
   },

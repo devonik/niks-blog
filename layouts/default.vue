@@ -46,7 +46,7 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
       <MainHeader />
     </header>
     <main>
-      <div class="p-9" />
+      <Adsbygoogle ad-slot="2678018622" ad-format="horizontal" />
       <slot />
     </main>
     <footer>
@@ -84,5 +84,8 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
   display: grid;
   grid-template-rows: 1fr auto;
   min-height: 100vh;
+}
+.google-ad-container {
+  max-height: 100px;
 }
 </style>
