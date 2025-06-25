@@ -71,12 +71,12 @@ watch(targetIsVisible, async (isVisible) => {
       render: (data: FilterPayload) => {
         let contentEl
         if (data.model.media_type === 'VIDEO')
-          contentEl = `<video class="not-prose" controls>
+          contentEl = `<video class="not-prose instafeed__item__element" controls>
                         <source src="${data.model.media_url}" type="video/mp4">
                         Your browser does not support the video tag.
                        </video>`
         else
-          contentEl = `<img class="not-prose" src="${data.model.media_url}" alt="${data.caption}" />`
+          contentEl = `<img class="not-prose instafeed__item__element" src="${data.model.media_url}" alt="${data.caption}" />`
         return `<div class="instafeed__item" >
                   <a href="${data.link}" target="_blank" rel="noopener noreferrer">
                   <div class="instafeed__item__header">
@@ -96,7 +96,7 @@ watch(targetIsVisible, async (isVisible) => {
 
 <template>
   <div>
-    <LoadingSpinner v-if="!isLoaded" />
+    <LoadingSpinner v-if="!isLoaded" class="instafeed__item" />
     <div
       :id="anchor"
       ref="target"
@@ -120,6 +120,9 @@ watch(targetIsVisible, async (isVisible) => {
       justify-content: space-between;
       margin-bottom: 8px;
       min-height: 100px;
+    }
+    .instafeed__item__element {
+      max-height: 300px;
     }
   }
 }

@@ -12,7 +12,7 @@ defineProps<{
     <a :href="links[stripePaymentLinkKey]" target="_blank">
       <img
         class="not-prose rounded-lg shadow-md"
-        :src="`/blogs-img/galapagos/${stripePaymentLinkKey}.png`"
+        :src="`/blogs-img/google-maps/${stripePaymentLinkKey}.png`"
         width="350"
         alt="Google maps list"
       /> </a
