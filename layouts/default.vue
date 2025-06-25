@@ -3,7 +3,7 @@ import { SpeedInsights } from '@vercel/speed-insights/nuxt'
 import { Analytics } from '@vercel/analytics/nuxt'
 import type { BeforeSendEvent } from '@vercel/analytics'
 
-const isCheckoutSucceedModalOpen = ref(false)
+const isModalOpen = ref(false)
 const checkoutSendEmailAgainErrorMessage = ref('')
 const params = useUrlSearchParams('history')
 
@@ -11,7 +11,7 @@ watch(
   params,
   (newParams) => {
     if (newParams['checkout-succeed-session']) {
-      isCheckoutSucceedModalOpen.value = true
+      isModalOpen.value = true
     }
   },
   { immediate: true },
@@ -24,7 +24,7 @@ function sendCheckoutSucceedEmail() {
     }),
   })
     .then(() => {
-      isCheckoutSucceedModalOpen.value = false
+      isModalOpen.value = false
     })
     .catch(() => {
       checkoutSendEmailAgainErrorMessage.value =
@@ -54,11 +54,8 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
     </footer>
     <Analytics :before-send="beforeSendAnalytics" />
     <SpeedInsights bef />
-    <CheckoutSucceedModal
-      :is-modal-visible="isCheckoutSucceedModalOpen"
-      @close="isCheckoutSucceedModalOpen = false"
-    >
-      <div class="center">
+    <Modal :is-modal-visible="isModalOpen" @close="isModalOpen = false">
+      <div class="justify-self-center">
         <Icon name="mdi:check-circle-outline" size="120" class="text-green-600" />
       </div>
       <p class="mt-3">
@@ -78,7 +75,7 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
           Send again
         </button>
       </template>
-    </CheckoutSucceedModal>
+    </Modal>
   </div>
 </template>
 

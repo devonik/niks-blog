@@ -9,6 +9,9 @@ const { data: articles, error } = await useAsyncData(`blog-post-${path}`, () =>
 )
 
 if (error.value) navigateTo('/404')
+const stripePaymentLinks = import.meta.env.DEV
+  ? DEV_STRIPE_PAYMENT_LINKS
+  : PROD_STRIPE_PAYMENT_LINKS
 
 const data = computed<BlogPost>(() => {
   const meta = articles?.value?.meta as unknown as BlogPost
@@ -81,11 +84,16 @@ useHead({
 
 // Generate OG Image
 defineOgImageComponent('Test', {
-  headline: 'Riyads Blog 👋',
+  headline: 'Niks Blog 👋',
   title: articles.value?.seo.title || '',
   description: articles.value?.seo.description || '',
   link: data.value.ogImage,
 })
+
+const isModalOpen = ref(false)
+setTimeout(() => {
+  isModalOpen.value = true
+}, 5000) // Close modal after 10 seconds
 </script>
 
 <template>
@@ -122,5 +130,50 @@ defineOgImageComponent('Test', {
         aria-label="Share with {network}"
       />
     </div>
+    <Modal :is-modal-visible="isModalOpen" @close="isModalOpen = false">
+      <div class="justify-self-center">
+        <Icon name="mdi:sale-outline" size="120" class="text-blue-600" />
+      </div>
+      <p class="mt-3">
+        Get now access to one of my google map's lists. With the promotion code below you get it for
+        free.
+        <span class="text-red-600">Caution: Only 20 codes available!</span>
+      </p>
+      <p class="mt-3 font-semibold text-lg">
+        <span class="text-blue-600">PROMO CODE: </span>
+        <span class="text-red-600">FRIENDS100</span>
+      </p>
+
+      <template #actions>
+        <a :href="stripePaymentLinks['google-maps-list--santa-cruz']" target="_blank">
+          <button
+            class="w-full mb-2 border px-3 py-1 text-sm shadow-sm font-medium tracking-wider text-black rounded-md hover:shadow-lg hover:bg-gray-100"
+          >
+            Galapagos - Santa Cruz
+          </button>
+        </a>
+        <a :href="stripePaymentLinks['google-maps-list--san-cristobal']" target="_blank">
+          <button
+            class="w-full mb-2 border px-3 py-1 text-sm shadow-sm font-medium tracking-wider text-black rounded-md hover:shadow-lg hover:bg-gray-100"
+          >
+            Galapagos - San Cristobal
+          </button>
+        </a>
+        <a :href="stripePaymentLinks['google-maps-list--isabela']" target="_blank">
+          <button
+            class="w-full mb-2 border px-3 py-1 text-sm shadow-sm font-medium tracking-wider text-black rounded-md hover:shadow-lg hover:bg-gray-100"
+          >
+            Galapagos - Isabela
+          </button>
+        </a>
+        <a :href="stripePaymentLinks['google-maps-list--tabletennis-worldwide']" target="_blank">
+          <button
+            class="w-full mb-2 border px-3 py-1 text-sm shadow-sm font-medium tracking-wider text-black rounded-md hover:shadow-lg hover:bg-gray-100"
+          >
+            Tabletennis Worldwide
+          </button>
+        </a>
+      </template>
+    </Modal>
   </div>
 </template>
