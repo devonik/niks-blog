@@ -13,5 +13,5 @@ export const PROD_STRIPE_PAYMENT_LINKS = {
   'google-maps-list--isabela': 'https://buy.stripe.com/5kQ7sN1kdeUn69u2iY8N201',
   'google-maps-list--santa-cruz': 'https://buy.stripe.com/3cIdRb7IB9A369u4r68N200',
   'google-maps-list--san-cristobal': 'https://buy.stripe.com/9B68wR5AtaE7btOg9O8N202',
-  'google-maps-list--tabletennis-worldwide': '',
+  'google-maps-list--tabletennis-worldwide': 'https://buy.stripe.com/3cIdRbbYR9A3cxS4r68N203',
 }
