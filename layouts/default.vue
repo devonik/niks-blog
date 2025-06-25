@@ -45,8 +45,15 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
     <header class="fixed w-full bg-[#F1F2F4] dark:bg-slate-950 z-10">
       <MainHeader />
     </header>
-    <Adsbygoogle />
     <main>
+      <ins
+        class="adsbygoogle"
+        style="display: block"
+        data-ad-client="ca-pub-4609998981070446"
+        data-ad-slot="2678018622"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
       <slot />
     </main>
     <footer>
