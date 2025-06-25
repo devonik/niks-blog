@@ -15,6 +15,12 @@ export default defineNuxtConfig({
     public: {
       baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'https://blog.devnik.dev',
     },
+    publicRuntimeConfig: {
+      googleAdsense: {
+        id: process.env.NUXT_GOOGLE_ADSENSE_ID,
+        test: process.env.NUXT_GOOGLE_ADSENSE_TEST_MODE === 'true',
+      },
+    },
   },
   modules: [
     'nuxt-icon',
@@ -33,9 +39,6 @@ export default defineNuxtConfig({
     'nuxt-scheduler',
     '@nuxtjs/google-adsense',
   ],
-  googleAdsense: {
-    id: process.env.GOOGLE_ADSENSE_ID,
-  },
   socialShare: {
     baseUrl: 'https://blog.devnik.dev',
   },
