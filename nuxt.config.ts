@@ -39,6 +39,9 @@ export default defineNuxtConfig({
     'nuxt-scheduler',
     '@nuxtjs/google-adsense',
   ],
+  googleAdsense: {
+    hideUnfilled: true,
+  },
   socialShare: {
     baseUrl: 'https://blog.devnik.dev',
   },
