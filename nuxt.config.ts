@@ -17,11 +17,12 @@ export default defineNuxtConfig({
     },
     publicRuntimeConfig: {
       googleAdsense: {
-        id: 'ca-pub-4609998981070446',
+        id: process.env.NUXT_GOOGLE_ADSENSE_ID,
         test: process.env.NUXT_GOOGLE_ADSENSE_TEST_MODE === 'true',
       },
     },
   },
+  css: ['@/assets/css/main.css'],
   modules: [
     'nuxt-icon',
     '@nuxt/image',
