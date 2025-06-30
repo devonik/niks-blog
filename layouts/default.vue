@@ -48,7 +48,17 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
     <main>
       <div class="p-9" />
       <!--TODO ads not ready yet wait for review https://adsense.google.com/adsense/u/0/pub-4609998981070446/sites/list-->
-      <Adsbygoogle ad-format="horizontal" />
+
+      <ScriptGoogleAdsense
+        data-ad-client="ca-pub-4609998981070446"
+        data-ad-slot="2678018622"
+        data-ad-format="horizontal"
+      >
+        <template #error>
+          <!-- Fallback content -->
+          <p>Please support us by disabling your ad blocker.</p>
+        </template>
+      </ScriptGoogleAdsense>
       <slot />
     </main>
     <footer>

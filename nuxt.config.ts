@@ -15,12 +15,6 @@ export default defineNuxtConfig({
     public: {
       baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'https://blog.devnik.dev',
     },
-    publicRuntimeConfig: {
-      googleAdsense: {
-        id: process.env.NUXT_GOOGLE_ADSENSE_ID,
-        test: process.env.NUXT_GOOGLE_ADSENSE_TEST_MODE === 'true',
-      },
-    },
   },
   css: ['@/assets/css/main.css'],
   modules: [
@@ -38,10 +32,15 @@ export default defineNuxtConfig({
     '@formkit/auto-animate',
     '@stefanobartoletti/nuxt-social-share',
     'nuxt-scheduler',
-    '@nuxtjs/google-adsense',
+    '@nuxt/scripts',
   ],
-  googleAdsense: {
-    hideUnfilled: true,
+  scripts: {
+    registry: {
+      googleAdsense: {
+        client: process.env.NUXT_GOOGLE_ADSENSE_ID, // Your Google AdSense Publisher ID
+        autoAds: true, // Enable Auto Ads
+      },
+    },
   },
   socialShare: {
     baseUrl: 'https://blog.devnik.dev',
