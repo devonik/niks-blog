@@ -6,6 +6,7 @@ import type { BeforeSendEvent } from '@vercel/analytics'
 const isModalOpen = ref(false)
 const checkoutSendEmailAgainErrorMessage = ref('')
 const params = useUrlSearchParams('history')
+const config = useRuntimeConfig()
 
 watch(
   params,
@@ -49,16 +50,7 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
       <div class="p-9" />
       <!--TODO ads not ready yet wait for review https://adsense.google.com/adsense/u/0/pub-4609998981070446/sites/list-->
 
-      <ScriptGoogleAdsense
-        data-ad-client="ca-pub-4609998981070446"
-        data-ad-slot="2678018622"
-        data-ad-format="horizontal"
-      >
-        <template #error>
-          <!-- Fallback content -->
-          <p>Please support us by disabling your ad blocker.</p>
-        </template>
-      </ScriptGoogleAdsense>
+      <GoogleAdsense slot-id="2678018622" format="horizontal" />
       <slot />
     </main>
     <footer>

@@ -14,6 +14,12 @@ export default defineNuxtConfig({
     databaseUrl: process.env.NUXT_DATABASE_URL || '',
     public: {
       baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'https://blog.devnik.dev',
+      scripts: {
+        googleAdsense: {
+          client: process.env.NUXT_GOOGLE_ADSENSE_ID, // Your Google AdSense Publisher ID
+          autoAds: true, // Enable Auto Ads
+        },
+      },
     },
   },
   css: ['@/assets/css/main.css'],
@@ -36,10 +42,7 @@ export default defineNuxtConfig({
   ],
   scripts: {
     registry: {
-      googleAdsense: {
-        client: process.env.NUXT_GOOGLE_ADSENSE_ID, // Your Google AdSense Publisher ID
-        autoAds: true, // Enable Auto Ads
-      },
+      googleAdsense: true,
     },
   },
   socialShare: {
