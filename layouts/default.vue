@@ -48,9 +48,6 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
     </header>
     <main>
       <div class="p-9" />
-      <!--TODO ads not ready yet wait for review https://adsense.google.com/adsense/u/0/pub-4609998981070446/sites/list-->
-
-      <GoogleAdsense slot-id="2678018622" format="horizontal" />
       <slot />
     </main>
     <footer>
