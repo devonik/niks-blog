@@ -11,6 +11,9 @@ defineEmits(['close'])
       <div
         class="w-full max-w-xs max-h-xs p-3 relative mx-auto my-auto rounded-xl shadow-lg bg-white"
       >
+        <div class="modal__toolbar-close" @click="$emit('close')">
+          <Icon name="mdi:close-circle-outline" size="24" />
+        </div>
         <slot>Popup default slot</slot>
         <div class="p-3 mt-2 text-center md:block">
           <slot name="actions">
@@ -26,3 +29,11 @@ defineEmits(['close'])
     </div>
   </transition>
 </template>
+<style lang="scss" scoped>
+.modal__toolbar-close {
+  position: absolute;
+  top: 0px;
+  right: 2px;
+  cursor: pointer;
+}
+</style>
