@@ -5,20 +5,10 @@ import initStripe from './initStripe'
 export default async (sessionId: string) => {
   const stripe = await initStripe()
 
-  console.log('Fulfilling Checkout Session ' + sessionId)
-
-  // TODO: Make this function safe to run multiple times,
-  // even concurrently, with the same session ID
-
-  // TODO: Make sure fulfillment hasn't already been
-  // performed for this Checkout Session
-  // Maybe with nuxt storage ?
-
   // Retrieve the Checkout Session from the API with line_items expanded
   const checkoutSession = await stripe.checkout.sessions.retrieve(sessionId, {
     expand: ['line_items'],
   })
-  console.log('checkoutSession', checkoutSession)
 
   // If not paid, do nothing
   if (checkoutSession.payment_status !== 'paid') return
@@ -32,16 +22,10 @@ export default async (sessionId: string) => {
       //Google maps list products
       Object.keys(GOOGLE_MAPS_LIST_PRODUCT_KEY.galapagos).forEach((key) => {
         if (product.metadata['product-key'] === GOOGLE_MAPS_LIST_PRODUCT_KEY.galapagos[key]) {
-          console.log(`Google maps list ${key} bought`)
           formattedProductLines[product.name] = GOOGLE_MAPS_LIST_LINKS.galapagos[key]
         }
       })
-      console.log(
-        'Customer ' +
-          checkoutSession.customer_details?.email +
-          ' bought products. Will send email with links:',
-        formattedProductLines,
-      )
+
       if (checkoutSession.customer_details?.email) {
         await sendMail(
           checkoutSession.customer_details.email,
