@@ -1,13 +1,12 @@
 <script lang="ts" setup>
-import { navbarData } from '~/data'
+import { navbarData, homePage } from '~/data'
 
 useHead({
   title: 'Home',
   meta: [
     {
       name: 'description',
-      content:
-        'Welcome To My Blog Site. Get Web Development, Javascript, Typescript, NodeJs, Vue, and Nuxt, Related Articles, Tips, Learning resources and more.',
+      content: homePage.description,
     },
   ],
 })
@@ -16,7 +15,7 @@ useHead({
 defineOgImageComponent('About', {
   headline: 'Greetings 👋',
   title: navbarData.homeTitle,
-  description: 'Dive into web development with me and learn Js, Ts, Vue, Nuxt, Docker, k8s',
+  description: navbarData.homeTitle,
   link: '/indonesia-komodo-me.jpg',
 })
 </script>

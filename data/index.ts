@@ -5,7 +5,7 @@ export const navbarData = {
 export const footerData = {
   author: 'Niklas Grieger',
   aboutAuthor:
-    'Hi! I am Niklas, a freelance software engineer. I like to travel the world and I like to share my experiences and tipps and tricks.',
+    'Hi! I am Niklas. I like to travel the world and I like to share my experiences and tipps and tricks.',
   authorInterest:
     'My passion beside my job as a software engineer is traveling, scuba diving and tabletennis.',
   aboutTheSite:
@@ -15,7 +15,7 @@ export const footerData = {
 export const homePage = {
   title: 'Welcome To My Blog Site',
   description:
-    'Read about my travel experiences. I will share tipps and tricks for budget traveling, things to do or to avoid and more. I am glad that you are here and willing to read my blog :)',
+    'Read about my solo travel experiences. I will share tipps and tricks for budget traveling, things to do or to avoid and more. I am glad that you are here and willing to read my blog :)',
 }
 
 export const blogsPage = {
