@@ -6,7 +6,6 @@ import type { BeforeSendEvent } from '@vercel/analytics'
 const isModalOpen = ref(false)
 const checkoutSendEmailAgainErrorMessage = ref('')
 const params = useUrlSearchParams('history')
-const config = useRuntimeConfig()
 
 watch(
   params,
@@ -55,7 +54,7 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
     </footer>
     <Analytics :before-send="beforeSendAnalytics" />
     <SpeedInsights bef />
-    <Modal :is-modal-visible="isModalOpen" @close="isModalOpen = false">
+    <OverlayModal :is-modal-visible="isModalOpen" @close="isModalOpen = false">
       <div class="justify-self-center">
         <Icon name="mdi:check-circle-outline" size="120" class="text-green-600" />
       </div>
@@ -76,7 +75,7 @@ const beforeSendAnalytics = (event: BeforeSendEvent) => {
           Send again
         </button>
       </template>
-    </Modal>
+    </OverlayModal>
   </div>
 </template>
 

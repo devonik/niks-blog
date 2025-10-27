@@ -130,7 +130,7 @@ setTimeout(() => {
         aria-label="Share with {network}"
       />
     </div>
-    <Modal :is-modal-visible="isModalOpen" @close="isModalOpen = false">
+    <OverlayModal :is-modal-visible="isModalOpen" @close="isModalOpen = false">
       <div class="justify-self-center">
         <Icon name="mdi:sale-outline" size="120" class="text-blue-600" />
       </div>
@@ -174,6 +174,6 @@ setTimeout(() => {
           </button>
         </a>
       </template>
-    </Modal>
+    </OverlayModal>
   </div>
 </template>
