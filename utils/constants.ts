@@ -3,6 +3,12 @@ export type STRIPE_PAYMENT_LINKS_KEYS =
   | 'google-maps-list--isabela'
   | 'google-maps-list--santa-cruz'
   | 'google-maps-list--tabletennis-worldwide'
+export const STRIPE_PAYMENT_NAMES = {
+  'google-maps-list--isabela': 'Galapagos - Isabela',
+  'google-maps-list--santa-cruz': 'Galapagos - Santa Cruz',
+  'google-maps-list--san-cristobal': 'Galapagos - San Cristobal',
+  'google-maps-list--tabletennis-worldwide': 'Tabletennis Worldwide',
+}
 export const DEV_STRIPE_PAYMENT_LINKS = {
   'google-maps-list--isabela': 'https://buy.stripe.com/test_cNiaEZfb72eZ4tH1zF7wA00',
   'google-maps-list--santa-cruz': 'https://buy.stripe.com/test_dRmaEZ5AxaLvaS5emr7wA01',
