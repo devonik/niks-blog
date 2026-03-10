@@ -86,8 +86,6 @@ defineOgImageComponent('Test', {
   description: articles.value?.seo.description || '',
   link: data.value.ogImage,
 })
-
-const isModalOpen = ref(false)
 </script>
 
 <template>
